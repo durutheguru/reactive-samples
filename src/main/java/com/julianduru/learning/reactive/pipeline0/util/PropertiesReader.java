@@ -21,7 +21,10 @@ public class PropertiesReader {
         path = !Strings.isNullOrEmpty(path) ? path : DEFAULT_PATH;
 
         try {
-            System.setProperties(readFromPath(path));
+            var properties = readFromPath(path);
+            for (var property : properties.stringPropertyNames()) {
+                System.setProperty(property, properties.getProperty(property));
+            }
         }
         catch (IOException e) {
             log.log(Level.WARNING, "Unable to load Properties file from path: " + path, e);
@@ -35,5 +38,6 @@ public class PropertiesReader {
 
         return properties;
     }
+
 
 }
