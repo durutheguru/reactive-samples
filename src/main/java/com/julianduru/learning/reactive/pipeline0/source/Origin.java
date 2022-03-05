@@ -28,7 +28,7 @@ public class Origin {
 
     static {
         var rateMillis = System.getProperty("config.origin.rate-millis");
-        origin = Flux.interval(Duration.ofMillis(Long.parseLong(rateMillis)));
+        origin = Flux.interval(Duration.ofMillis(Long.parseLong(rateMillis))).share();
     }
 
 
