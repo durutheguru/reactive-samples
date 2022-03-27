@@ -33,7 +33,7 @@ public class Main {
                 ex -> log.warning("Error Thrown: " + ex.getMessage())
             );
 
-        Thread.sleep(100000L);
+        Thread.sleep(10000L);
     }
 
 
